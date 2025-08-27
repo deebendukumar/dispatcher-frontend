@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --brand-primary: #3d99f5;
+            --brand-secondary: #e7edf4;
+            --brand-text-primary: #0d141c;
+            --brand-text-secondary: #49739c;
+            --brand-background: #f8fafc;
+            --brand-border: #e2e8f0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-input {
+            @apply block w-full rounded-md border-0 py-2.5 px-3.5 text-[var(--brand-text-primary)] shadow-sm ring-1 ring-inset ring-[var(--brand-border)] placeholder:text-[var(--brand-text-secondary)] focus:ring-2 focus:ring-inset focus:ring-[var(--brand-primary)] sm:text-sm sm:leading-6 bg-white;
+        }
+        .form-select {
+            @apply block w-full rounded-md border-0 py-2.5 px-3.5 text-[var(--brand-text-primary)] shadow-sm ring-1 ring-inset ring-[var(--brand-border)] focus:ring-2 focus:ring-inset focus:ring-[var(--brand-primary)] sm:text-sm sm:leading-6 bg-white;
+        }
+        .form-checkbox {
+            @apply h-4 w-4 rounded border-[var(--brand-border)] text-[var(--brand-primary)] focus:ring-[var(--brand-primary)];
+        }
+        .btn-primary {
+            @apply rounded-md bg-[var(--brand-primary)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)];
+        }
+        .btn-secondary {
+            @apply rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-[var(--brand-text-primary)] shadow-sm ring-1 ring-inset ring-[var(--brand-border)] hover:bg-gray-50;
+        }
+    </style>
+</head>
+<body class="bg-[var(--brand-background)] text-[var(--brand-text-primary)]">
+<div class="flex min-h-screen flex-col">
+    <header class="sticky top-0 z-10 border-b border-[var(--brand-border)] bg-white/80 backdrop-blur-sm">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-[var(--brand-primary)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold tracking-tight">SwiftStock</h1>
+                </div>
+                <nav class="hidden md:flex md:items-center md:gap-8">
+                    <a class="text-sm font-medium text-gray-700 hover:text-[var(--brand-primary)]" href="#">Dashboard</a>
+                    <a class="text-sm font-medium text-gray-700 hover:text-[var(--brand-primary)]" href="#">Inventory</a>
+                    <a class="text-sm font-medium text-gray-700 hover:text-[var(--brand-primary)]" href="#">Orders</a>
+                    <a class="text-sm font-medium text-gray-700 hover:text-[var(--brand-primary)]" href="#">Shipping</a>
+                    <a class="text-sm font-medium text-gray-700 hover:text-[var(--brand-primary)]" href="#">Reports</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <div class="h-10 w-10 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtVj9nP2O9DpXzIKeL7pTG0bpq0RwO_2EBhkBBglT6zzZpD0nDnCsZACGTL2lmslpbDR_5H9tzGQxDXxbQT0YD-JnUfmSJNpvge9I5zp8emUj6y5wilDY1PTWg1u64ofHpGlo0VgY8GkaA5vafY1NGwZBW5X114AjEzndzPOePkP29MBy8J6FTEHVn8j_zD80CTqgAesgZZCt5-w0-L21HqF-tYSRczZ0zV1gb_2EFWafdHjAA8F4dgPjJGXDc9tNiDXwlgq4ff9o");'></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow">
+        <div class="mx-auto max-w-2xl px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+            <div class="space-y-12">
+                <div class="border-b border-[var(--brand-border)] pb-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-[var(--brand-text-primary)]">Profile Settings</h2>
+                    <p class="mt-2 text-sm text-[var(--brand-text-secondary)]">Manage your account details and preferences.</p>
+                </div>
+                <div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
+                    <div>
+                        <h3 class="text-lg font-semibold leading-6 text-[var(--brand-text-primary)]">Personal Information</h3>
+                        <p class="mt-1 text-sm text-[var(--brand-text-secondary)]">Update your name, email, and password.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6">
+                            <div class="sm:col-span-4">
+                                <label class="block text-sm font-medium leading-6 text-[var(--brand-text-primary)]" for="name">Name</label>
+                                <div class="mt-2">
+                                    <input autocomplete="name" class="form-input" id="name" type="text" value="Jane Doe"/>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label class="block text-sm font-medium leading-6 text-[var(--brand-text-primary)]" for="email">Email address</label>
+                                <div class="mt-2">
+                                    <input autocomplete="email" class="form-input" id="email" name="email" type="email" value="jane.doe@example.com"/>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label class="block text-sm font-medium leading-6 text-[var(--brand-text-primary)]" for="password">Password</label>
+                                <div class="mt-2">
+                                    <input autocomplete="new-password" class="form-input" id="password" name="password" placeholder="••••••••" type="password"/>
+                                </div>
+                                <p class="mt-2 text-xs text-[var(--brand-text-secondary)]">Leave blank to keep your current password.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-t border-[var(--brand-border)] pt-10 md:grid-cols-3">
+                    <div>
+                        <h3 class="text-lg font-semibold leading-6 text-[var(--brand-text-primary)]">Notifications</h3>
+                        <p class="mt-1 text-sm text-[var(--brand-text-secondary)]">Choose how you want to be notified.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <fieldset>
+                            <legend class="sr-only">By Email</legend>
+                            <div class="space-y-4">
+                                <div class="relative flex items-start">
+                                    <div class="flex h-6 items-center">
+                                        <input checked="" class="form-checkbox" id="email-notifications" name="email-notifications" type="checkbox"/>
+                                    </div>
+                                    <div class="ml-3 text-sm leading-6">
+                                        <label class="font-medium text-[var(--brand-text-primary)]" for="email-notifications">Email Notifications</label>
+                                        <p class="text-[var(--brand-text-secondary)]">Get notified about important updates via email.</p>
+                                    </div>
+                                </div>
+                                <div class="relative flex items-start">
+                                    <div class="flex h-6 items-center">
+                                        <input class="form-checkbox" id="push-notifications" name="push-notifications" type="checkbox"/>
+                                    </div>
+                                    <div class="ml-3 text-sm leading-6">
+                                        <label class="font-medium text-[var(--brand-text-primary)]" for="push-notifications">Push Notifications</label>
+                                        <p class="text-[var(--brand-text-secondary)]">Receive push notifications on your devices.</p>
+                                    </div>
+                                </div>
+                                <div class="relative flex items-start">
+                                    <div class="flex h-6 items-center">
+                                        <input class="form-checkbox" id="sms-notifications" name="sms-notifications" type="checkbox"/>
+                                    </div>
+                                    <div class="ml-3 text-sm leading-6">
+                                        <label class="font-medium text-[var(--brand-text-primary)]" for="sms-notifications">SMS Notifications</label>
+                                        <p class="text-[var(--brand-text-secondary)]">Receive critical alerts via text message.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-t border-[var(--brand-border)] pt-10 md:grid-cols-3">
+                    <div>
+                        <h3 class="text-lg font-semibold leading-6 text-[var(--brand-text-primary)]">Display Settings</h3>
+                        <p class="mt-1 text-sm text-[var(--brand-text-secondary)]">Configure your regional preferences.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6">
+                            <div class="sm:col-span-3">
+                                <label class="block text-sm font-medium leading-6 text-[var(--brand-text-primary)]" for="language">Language</label>
+                                <div class="mt-2">
+                                    <select class="form-select" id="language" name="language">
+                                        <option>English</option>
+                                        <option>Spanish</option>
+                                        <option>French</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-3">
+                                <label class="block text-sm font-medium leading-6 text-[var(--brand-text-primary)]" for="date-format">Date Format</label>
+                                <div class="mt-2">
+                                    <select class="form-select" id="date-format" name="date-format">
+                                        <option>MM/DD/YYYY</option>
+                                        <option>DD/MM/YYYY</option>
+                                        <option>YYYY-MM-DD</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-4">
+                                <label class="block text-sm font-medium leading-6 text-[var(--brand-text-primary)]" for="timezone">Time Zone</label>
+                                <div class="mt-2">
+                                    <select class="form-select" id="timezone" name="timezone">
+                                        <option>Pacific Standard Time (PST)</option>
+                                        <option>Eastern Standard Time (EST)</option>
+                                        <option>Greenwich Mean Time (GMT)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 flex items-center justify-end gap-x-4 border-t border-[var(--brand-border)] pt-8">
+                <button class="btn-secondary" type="button">Cancel</button>
+                <button class="btn-primary" type="submit">Save Changes</button>
+            </div>
+        </div>
+    </main>
+</div>
+
+</body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SwiftShip - Order Management</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-50: #f0f9ff;
+            --primary-100: #e0f2fe;
+            --primary-200: #bae6fd;
+            --primary-300: #7dd3fc;
+            --primary-400: #38bdf8;
+            --primary-500: #0ea5e9;
+            --primary-600: #0284c7;
+            --primary-700: #0369a1;
+            --primary-800: #075985;
+            --primary-900: #0c4a6e;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .status-badge {
+            @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+        }
+        .status-processing {
+            @apply bg-blue-100 text-blue-800;
+        }
+        .status-shipped {
+            @apply bg-green-100 text-green-800;
+        }
+        .status-cancelled {
+            @apply bg-red-100 text-red-800;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+<div class="flex h-screen overflow-hidden">
+    <div class="w-64 bg-white border-r border-gray-200 flex flex-col">
+        <div class="flex items-center justify-center h-16 border-b border-gray-200">
+            <div class="flex items-center gap-3 text-gray-800">
+                <div class="size-6 text-[#0284c7]">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-bold">SwiftShip</h2>
+            </div>
+        </div>
+        <nav class="flex-1 px-2 py-4 space-y-1">
+            <a class="flex items-center px-4 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-100" href="#">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Dashboard
+            </a>
+            <a class="flex items-center px-4 py-2 text-sm font-medium bg-[#f0f9ff] text-[#0284c7] rounded-md" href="#">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Orders
+            </a>
+            <a class="flex items-center px-4 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-100" href="#">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Inventory
+            </a>
+            <a class="flex items-center px-4 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-100" href="#">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Shipments
+            </a>
+            <a class="flex items-center px-4 py-2 text-sm font-medium text-gray-600 rounded-md hover:bg-gray-100" href="#">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Reports
+            </a>
+        </nav>
+    </div>
+    <main class="flex-1 overflow-y-auto">
+        <header class="bg-white shadow-sm">
+            <div class="mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-1">
+                        <h1 class="text-2xl font-semibold text-gray-900">Order Management</h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg aria-hidden="true" class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" fill-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <input class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-[#0284c7] focus:border-[#0284c7] sm:text-sm" id="search" name="search" placeholder="Search orders" type="search"/>
+                        </div>
+                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0284c7]" type="button">
+                            <span class="sr-only">View notifications</span>
+                            <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                            </svg>
+                        </button>
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhBfYKJO7cBgm8hW5EYD625FM6qwN4poB4Y89zBe8JElu9BYDGzQ-jHH6R1klOBjUsTOcgQ1chgFqw7wo98q5jL7fgfnxc9xdFuAeYfPW49drec4BJyd1j-YRQXbW2MtOfUu2EKE94k14sQR_4FtRQGIBaCUufVoCb27LnvPT06wypT81pzT1FusNFtpjKn9a_onllZQNIeB049W91XGjOK4HmIdTrwiJ3Duh5vP2jJ8jxpNLmXGsTHecC7_TCBKbXHWzKnrPGIWI");'></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="p-6 lg:p-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="flex-grow space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Order Details</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left text-gray-500">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3" scope="col">Order ID</th>
+                                    <th class="px-6 py-3" scope="col">Customer</th>
+                                    <th class="px-6 py-3" scope="col">Status</th>
+                                    <th class="px-6 py-3" scope="col">Picking Strategy</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="bg-white border-b">
+                                    <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">#12345</th>
+                                    <td class="px-6 py-4">Olivia Bennett</td>
+                                    <td class="px-6 py-4">
+                                        <span class="status-badge status-processing">Processing</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <select class="form-select block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-[#0284c7] focus:ring focus:ring-[#0284c7] focus:ring-opacity-50">
+                                            <option>FIFO</option>
+                                            <option>LIFO</option>
+                                            <option>Zone</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Items</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left text-gray-500">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3" scope="col">Item</th>
+                                    <th class="px-6 py-3" scope="col">Quantity</th>
+                                    <th class="px-6 py-3" scope="col">Location</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="bg-white border-b">
+                                    <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Product A</th>
+                                    <td class="px-6 py-4">10</td>
+                                    <td class="px-6 py-4">A1-01</td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Product B</th>
+                                    <td class="px-6 py-4">5</td>
+                                    <td class="px-6 py-4">B2-05</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Product C</th>
+                                    <td class="px-6 py-4">2</td>
+                                    <td class="px-6 py-4">C3-12</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-[360px] flex-shrink-0 space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Shipping &amp; Dispatch</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700" for="carrier">Carrier</label>
+                                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-[#0284c7] focus:border-[#0284c7] sm:text-sm rounded-md" id="carrier" name="carrier">
+                                    <option selected="">FedEx</option>
+                                    <option>UPS</option>
+                                    <option>DHL</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700" for="tracking-number">Tracking Number</label>
+                                <input class="mt-1 focus:ring-[#0284c7] focus:border-[#0284c7] block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="tracking-number" name="tracking-number" placeholder="Enter tracking number" type="text"/>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-700">Delivery Progress</h4>
+                                <div class="mt-2">
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-[#0ea5e9] h-2.5 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Estimated Delivery: July 20, 2024</p>
+                                </div>
+                            </div>
+                            <div class="pt-4 space-y-3">
+                                <button class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#0284c7] hover:bg-[#0369a1] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0284c7]" type="button">Mark as Shipped</button>
+                                <button class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0284c7]" type="button">Cancel Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+</body></html>

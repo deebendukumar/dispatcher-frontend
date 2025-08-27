@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-50: #eff8ff;
+            --primary-100: #dff0ff;
+            --primary-200: #b9e2ff;
+            --primary-300: #7ccbff;
+            --primary-400: #3dafff;
+            --primary-500: #1293fd;
+            --primary-600: #0777e3;
+            --primary-700: #0560b7;
+            --primary-800: #065196;
+            --primary-900: #09457a;
+            --primary-950: #052949;
+            --secondary-50: #f0f9ff;
+            --secondary-100: #e0f2fe;
+            --secondary-200: #bae6fd;
+            --secondary-300: #7dd3fc;
+            --secondary-400: #38bdf8;
+            --secondary-500: #0ea5e9;
+            --secondary-600: #0284c7;
+            --secondary-700: #0369a1;
+            --secondary-800: #075985;
+            --secondary-900: #0c4a6e;
+            --secondary-950: #082f49;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-10 py-4">
+            <div class="flex items-center gap-4 text-gray-900">
+                <svg class="h-8 w-8 text-[var(--primary-600)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+                </svg>
+                <h2 class="text-gray-900 text-2xl font-bold leading-tight tracking-tight">SwiftShip</h2>
+            </div>
+            <nav class="hidden lg:flex items-center gap-8">
+                <a class="text-gray-600 hover:text-gray-900 text-base font-medium" href="#">Dashboard</a>
+                <a class="text-gray-600 hover:text-gray-900 text-base font-medium" href="#">Inventory</a>
+                <a class="text-gray-600 hover:text-gray-900 text-base font-medium" href="#">Orders</a>
+                <a class="text-gray-600 hover:text-gray-900 text-base font-medium" href="#">Shipping</a>
+                <a class="text-gray-600 hover:text-gray-900 text-base font-medium" href="#">Reports</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button class="flex items-center justify-center rounded-full h-10 w-10 bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
+                    <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
+                    </svg>
+                    <span class="sr-only">Help</span>
+                </button>
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACi4hswWivQTEBfgF4prE9VEbf5Swdum0VCbnRkk8t2Vm-5tcGfZvlfr2f7hTivobU_SE6tq3_sHG2OX39Z9_yGLR6GBM9VwaC3VSmkEVHLyMTJZbDxS8UL4QwfC3IHnN7OLvsqLZXtHUjlVdrhiUxDRrFMLogfdQMUnjAS8Tg5O7bDSns8EaBcA21vv-Iw9W1WqesCgj4WYDYN_1dCvDUZC96TZyp0eZiVe-aEAJUWGdQ0Wz8Oni_hYksp-wSnWk9MSUbzCOmh1k");'></div>
+            </div>
+        </header>
+        <main class="flex-1 bg-gray-50/50">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+                <div class="max-w-3xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h1 class="text-4xl font-bold tracking-tighter text-gray-900 sm:text-5xl">Help &amp; Support</h1>
+                        <p class="mt-4 text-lg text-gray-600">Find answers to common questions or contact our support team for assistance.</p>
+                    </div>
+                    <div class="mb-12">
+                        <div class="relative">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <input class="form-input block w-full rounded-lg border-gray-300 bg-white py-4 pl-12 pr-4 text-base text-gray-900 placeholder:text-gray-500 focus:border-[var(--primary-500)] focus:ring-[var(--primary-500)]" placeholder="Search FAQs" type="search"/>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 mb-6">Common Issues</h2>
+                            <div class="divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+                                <a class="group flex items-center justify-between p-6 hover:bg-gray-50 transition-colors" href="#">
+                                    <div class="flex-1">
+                                        <p class="text-base font-medium text-gray-900">Inventory Management</p>
+                                        <p class="text-sm text-gray-500 mt-1">Learn how to manage your inventory effectively.</p>
+                                    </div>
+                                    <svg class="h-6 w-6 text-gray-400 group-hover:text-gray-700 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </a>
+                                <a class="group flex items-center justify-between p-6 hover:bg-gray-50 transition-colors" href="#">
+                                    <div class="flex-1">
+                                        <p class="text-base font-medium text-gray-900">Order Processing</p>
+                                        <p class="text-sm text-gray-500 mt-1">Troubleshoot order processing errors.</p>
+                                    </div>
+                                    <svg class="h-6 w-6 text-gray-400 group-hover:text-gray-700 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </a>
+                                <a class="group flex items-center justify-between p-6 hover:bg-gray-50 transition-colors" href="#">
+                                    <div class="flex-1">
+                                        <p class="text-base font-medium text-gray-900">Shipping &amp; Tracking</p>
+                                        <p class="text-sm text-gray-500 mt-1">Get help with shipping and tracking.</p>
+                                    </div>
+                                    <svg class="h-6 w-6 text-gray-400 group-hover:text-gray-700 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </a>
+                                <a class="group flex items-center justify-between p-6 hover:bg-gray-50 transition-colors" href="#">
+                                    <div class="flex-1">
+                                        <p class="text-base font-medium text-gray-900">Reports &amp; Analytics</p>
+                                        <p class="text-sm text-gray-500 mt-1">Generate and understand your reports.</p>
+                                    </div>
+                                    <svg class="h-6 w-6 text-gray-400 group-hover:text-gray-700 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="rounded-lg border border-gray-200 bg-white p-8">
+                            <h2 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 mb-6">Contact Support</h2>
+                            <form action="#" class="space-y-6" method="POST">
+                                <div>
+                                    <label class="block text-sm font-medium leading-6 text-gray-900" for="name">Your Name</label>
+                                    <div class="mt-2">
+                                        <input autocomplete="name" class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-500)] focus:ring-[var(--primary-500)] sm:text-sm" id="name" name="name" placeholder="Enter your name" type="text"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium leading-6 text-gray-900" for="email">Email Address</label>
+                                    <div class="mt-2">
+                                        <input autocomplete="email" class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-500)] focus:ring-[var(--primary-500)] sm:text-sm" id="email" name="email" placeholder="Enter your email" type="email"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium leading-6 text-gray-900" for="subject">Subject</label>
+                                    <div class="mt-2">
+                                        <input class="form-input block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-500)] focus:ring-[var(--primary-500)] sm:text-sm" id="subject" name="subject" placeholder="Enter the subject" type="text"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium leading-6 text-gray-900" for="message">Message</label>
+                                    <div class="mt-2">
+                                        <textarea class="form-textarea block w-full rounded-md border-gray-300 shadow-sm focus:border-[var(--primary-500)] focus:ring-[var(--primary-500)] sm:text-sm" id="message" name="message" placeholder="Describe your issue" rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="flex justify-end">
+                                    <button class="inline-flex justify-center rounded-md bg-[var(--primary-600)] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[var(--primary-500)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-600)]" type="submit">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 mb-6">Additional Resources</h2>
+                            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                                <a class="group block rounded-lg border border-gray-200 bg-white p-6 hover:border-[var(--primary-400)] hover:shadow-md transition-all" href="#">
+                                    <h3 class="font-semibold text-gray-900">Documentation</h3>
+                                    <p class="mt-1 text-sm text-gray-600">Browse our comprehensive documentation.</p>
+                                </a>
+                                <a class="group block rounded-lg border border-gray-200 bg-white p-6 hover:border-[var(--primary-400)] hover:shadow-md transition-all" href="#">
+                                    <h3 class="font-semibold text-gray-900">Tutorials</h3>
+                                    <p class="mt-1 text-sm text-gray-600">Watch our video tutorials and guides.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+</body></html>

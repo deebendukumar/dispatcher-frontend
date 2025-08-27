@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SwiftShip | Warehouse Management</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #3d99f5;
+            --sidebar-bg: #f9fafb;
+            --card-bg: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-item {
+            @apply flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium;
+        }
+        .nav-item.active {
+            @apply bg-[var(--primary-color)] text-white;
+        }
+        .nav-item:not(.active) {
+            @apply text-gray-700 hover:bg-gray-200;
+        }
+        .nav-item svg {
+            @apply size-5;
+        }
+        .quick-stat-card {
+            @apply bg-[var(--card-bg)] p-6 rounded-lg border border-[var(--border-color)] flex-1 min-w-[220px] shadow-sm;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<div class="flex h-screen bg-[var(--sidebar-bg)] text-[var(--text-primary)]">
+    <aside class="w-64 flex-shrink-0 border-r border-[var(--border-color)] flex flex-col">
+        <div class="h-16 flex items-center px-6 gap-3 border-b border-[var(--border-color)]">
+            <div class="size-8 text-[var(--primary-color)]">
+                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path></svg>
+            </div>
+            <h1 class="text-xl font-bold">SwiftShip</h1>
+        </div>
+        <nav class="flex-1 p-4 space-y-2">
+            <a class="nav-item active" href="#">
+                <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"></path></svg>
+                <span>Dashboard</span>
+            </a>
+            <a class="nav-item" href="#">
+                <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M223.68,66.15,135.68,18a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32l80.34,44-29.77,16.3-80.35-44ZM128,120,47.66,76l33.9-18.56,80.34,44ZM40,90l80,43.78v85.79L40,175.82Zm176,85.78h0l-80,43.79V133.82l32-17.51V152a8,8,0,0,0,16,0V107.55L216,90v85.77Z"></path></svg>
+                <span>Inventory</span>
+            </a>
+            <a class="nav-item" href="#">
+                <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M72,104a8,8,0,0,1,8-8h96a8,8,0,0,1,0,16H80A8,8,0,0,1,72,104Zm8,40h96a8,8,0,0,0,0-16H80a8,8,0,0,0,0,16ZM232,56V208a8,8,0,0,1-11.58,7.15L192,200.94l-28.42,14.21a8,8,0,0,1-7.16,0L128,200.94,99.58,215.15a8,8,0,0,1-7.16,0L64,200.94,35.58,215.15A8,8,0,0,1,24,208V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56Zm-16,0H40V195.06l20.42-10.22a8,8,0,0,1,7.16,0L96,199.06l28.42-14.22a8,8,0,0,1,7.16,0L160,199.06l28.42-14.22a8,8,0,0,1,7.16,0L216,195.06Z"></path></svg>
+                <span>Orders</span>
+            </a>
+            <a class="nav-item" href="#">
+                <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm0,16V152h-28.7A15.86,15.86,0,0,0,168,156.69L148.69,176H107.31L88,156.69A15.86,15.86,0,0,0,76.69,152H48V48Zm0,160H48V168H76.69L96,187.31A15.86,15.86,0,0,0,107.31,192h41.38A15.86,15.86,0,0,0,160,187.31L179.31,168H208v40Z"></path></svg>
+                <span>Receiving</span>
+            </a>
+            <a class="nav-item" href="#">
+                <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path></svg>
+                <span>Labor</span>
+            </a>
+            <a class="nav-item" href="#">
+                <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176ZM104,120v24a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm32-16v40a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm32-16v56a8,8,0,0,1-16,0V88a8,8,0,0,1,16,0Z"></path></svg>
+                <span>Reports</span>
+            </a>
+            <a class="nav-item" href="#">
+                <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Returns</span>
+            </a>
+        </nav>
+        <div class="p-4 mt-auto">
+            <a class="nav-item" href="#">
+                <svg fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+                <span>Help &amp; Docs</span>
+            </a>
+        </div>
+    </aside>
+    <main class="flex-1 flex flex-col bg-gray-50 overflow-y-auto">
+        <header class="h-16 flex items-center justify-end px-8 bg-white border-b border-[var(--border-color)]">
+            <div class="flex items-center gap-6">
+                <button class="relative text-gray-500 hover:text-gray-700">
+                    <svg class="size-6" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path></svg>
+                    <span class="absolute top-0 right-0 flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary-color)] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--primary-color)]"></span>
+</span>
+                </button>
+                <div class="flex items-center gap-3">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZhwQCQbfFkBichqdZSqeelOkifQU1dTPda71GJQGHzOsXGmOmpv8EUlCrNYuauYBQfHijMyOZBzriXffyzzx1yvEsB2vAJuSl2gGQMCJoBPni-ykR8Y3O8G6TKt11uYoP42_B6nkWbi2QADtplur8kVhbXNvlnxyCauCmNW9V1ABVeWzSLPKo6v3W3kf64Ena3KZDGlWQP9IdEHsPHtwZi6A28K3pxOD328oVqEAdLdKYLiU9T2u-MzEvb8s57_8Asa3wjeXOhAw");'></div>
+                    <div>
+                        <p class="text-sm font-semibold">Alex Johnson</p>
+                        <p class="text-xs text-[var(--text-secondary)]">alex.j@swiftship.co</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="p-8">
+            <h2 class="text-3xl font-bold mb-6">Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="quick-stat-card">
+                    <p class="text-[var(--text-secondary)] text-sm font-medium">Total Stock</p>
+                    <p class="text-3xl font-bold mt-1">12,450</p>
+                </div>
+                <div class="quick-stat-card">
+                    <p class="text-[var(--text-secondary)] text-sm font-medium">Pending Orders</p>
+                    <p class="text-3xl font-bold mt-1">320</p>
+                </div>
+                <div class="quick-stat-card">
+                    <p class="text-[var(--text-secondary)] text-sm font-medium">Dispatched Today</p>
+                    <p class="text-3xl font-bold mt-1">150</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                <div class="lg:col-span-3 bg-[var(--card-bg)] p-6 rounded-lg border border-[var(--border-color)] shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-semibold">Order Volume</h3>
+                            <p class="text-sm text-[var(--text-secondary)]">Last 7 Months</p>
+                        </div>
+                        <div class="flex items-center gap-1 text-green-600">
+                            <svg class="size-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4L12 20M12 4L18 10M12 4L6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                            <span class="font-semibold text-sm">+15%</span>
+                        </div>
+                    </div>
+                    <div class="h-72 flex items-end justify-between px-2 pt-4">
+                        <div class="w-1/12 text-center">
+                            <div class="bg-gray-200 rounded-t-md hover:bg-[var(--primary-color)] transition-colors" style="height: 20%;"></div>
+                            <p class="text-xs text-[var(--text-secondary)] mt-2">Jan</p>
+                        </div>
+                        <div class="w-1/12 text-center">
+                            <div class="bg-gray-200 rounded-t-md hover:bg-[var(--primary-color)] transition-colors" style="height: 30%;"></div>
+                            <p class="text-xs text-[var(--text-secondary)] mt-2">Feb</p>
+                        </div>
+                        <div class="w-1/12 text-center">
+                            <div class="bg-gray-200 rounded-t-md hover:bg-[var(--primary-color)] transition-colors" style="height: 50%;"></div>
+                            <p class="text-xs text-[var(--text-secondary)] mt-2">Mar</p>
+                        </div>
+                        <div class="w-1/12 text-center">
+                            <div class="bg-[var(--primary-color)] rounded-t-md" style="height: 90%;"></div>
+                            <p class="text-xs text-[var(--text-secondary)] mt-2">Apr</p>
+                        </div>
+                        <div class="w-1/12 text-center">
+                            <div class="bg-gray-200 rounded-t-md hover:bg-[var(--primary-color)] transition-colors" style="height: 75%;"></div>
+                            <p class="text-xs text-[var(--text-secondary)] mt-2">May</p>
+                        </div>
+                        <div class="w-1/12 text-center">
+                            <div class="bg-gray-200 rounded-t-md hover:bg-[var(--primary-color)] transition-colors" style="height: 60%;"></div>
+                            <p class="text-xs text-[var(--text-secondary)] mt-2">Jun</p>
+                        </div>
+                        <div class="w-1/12 text-center">
+                            <div class="bg-gray-200 rounded-t-md hover:bg-[var(--primary-color)] transition-colors" style="height: 80%;"></div>
+                            <p class="text-xs text-[var(--text-secondary)] mt-2">Jul</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 bg-[var(--card-bg)] p-6 rounded-lg border border-[var(--border-color)] shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-semibold">Inventory Levels</h3>
+                            <p class="text-sm text-[var(--text-secondary)]">Last 7 Months</p>
+                        </div>
+                        <div class="flex items-center gap-1 text-red-600">
+                            <svg class="size-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20L12 4M12 20L18 14M12 20L6 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                            <span class="font-semibold text-sm">-5%</span>
+                        </div>
+                    </div>
+                    <div class="h-72">
+                        <svg fill="none" height="100%" preserveAspectRatio="none" viewBox="0 0 478 280" width="100%" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 200C18.1538 200 18.1538 100 36.3077 100C54.4615 100 54.4615 140 72.6154 140C90.7692 140 90.7692 220 108.923 220C127.077 220 127.077 120 145.231 120C163.385 120 163.385 240 181.538 240C199.692 240 199.692 160 217.846 160C236 160 236 140 254.154 140C272.308 140 272.308 260 290.462 260C308.615 260 308.615 280 326.769 280C344.923 280 344.923 20 363.077 20C381.231 20 381.231 180 399.385 180C417.538 180 417.538 250 435.692 250C453.846 250 453.846 100 472 100" stroke="var(--primary-color)" stroke-linecap="round" stroke-width="4"></path>
+                            <path d="M0 200C18.1538 200 18.1538 100 36.3077 100C54.4615 100 54.4615 140 72.6154 140C90.7692 140 90.7692 220 108.923 220C127.077 220 127.077 120 145.231 120C163.385 120 163.385 240 181.538 240C199.692 240 199.692 160 217.846 160C236 160 236 140 254.154 140C272.308 140 272.308 260 290.462 260C308.615 260 308.615 280 326.769 280C344.923 280 344.923 20 363.077 20C381.231 20 381.231 180 399.385 180C417.538 180 417.538 250 435.692 250C453.846 250 453.846 100 472 100 V 280 H 0 Z" fill="url(#paint0_linear_area)"></path>
+                            <defs>
+                                <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_area" x1="236" x2="236" y1="20" y2="280">
+                                    <stop stop-color="var(--primary-color)" stop-opacity="0.2"></stop>
+                                    <stop offset="1" stop-color="var(--primary-color)" stop-opacity="0"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+</body></html>

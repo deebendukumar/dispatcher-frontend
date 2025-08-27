@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <title>Labor Management Dashboard</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-200: #bfdbfe;
+            --primary-500: #3b82f6;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --green-500: #22c55e;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="relative flex min-h-screen">
+    <aside class="flex w-64 flex-col bg-white border-r border-gray-200">
+        <div class="flex h-full flex-col justify-between p-4">
+            <div class="flex flex-col gap-6">
+                <div class="flex items-center gap-3 px-2">
+                    <svg class="text-[var(--primary-600)]" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <div>
+                        <h1 class="text-gray-900 text-base font-bold">Swift Logistics</h1>
+                        <p class="text-gray-500 text-sm">Warehouse Ops</p>
+                    </div>
+                </div>
+                <nav class="flex flex-col gap-1">
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md" href="#">
+                        <svg class="text-gray-500" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <span class="text-sm font-medium">Dashboard</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 bg-[var(--primary-50)] text-[var(--primary-700)] rounded-md font-semibold" href="#">
+                        <svg class="text-[var(--primary-600)]" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <span class="text-sm font-medium">Workforce</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md" href="#">
+                        <svg class="text-gray-500" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect><path d="m9 12 2 2 4-4"></path></svg>
+                        <span class="text-sm font-medium">Tasks</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md" href="#">
+                        <svg class="text-gray-500" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M3 3v18h18"></path><path d="M18.7 8a2.5 2.5 0 0 1 0 5.1L12 18H3"></path><path d="M12 3v10.1"></path></svg>
+                        <span class="text-sm font-medium">Analytics</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md" href="#">
+                        <svg class="text-gray-500" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        <span class="text-sm font-medium">Settings</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </aside>
+    <main class="flex-1 overflow-y-auto">
+        <div class="px-6 py-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">Workforce Management</h1>
+                    <p class="text-gray-500 mt-1">Manage and optimize your warehouse team's performance and schedules.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2">
+                        <section class="mb-8">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Scheduling</h2>
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <button class="p-2 rounded-full hover:bg-gray-100">
+                                            <svg class="text-gray-500" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                        </button>
+                                        <h3 class="text-base font-semibold text-gray-800">July 2024</h3>
+                                        <button class="p-2 rounded-full hover:bg-gray-100 opacity-0" disabled="">
+                                            <svg class="text-gray-500" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                        </button>
+                                    </div>
+                                    <div class="grid grid-cols-7 text-center text-sm text-gray-500 font-medium">
+                                        <div class="py-2">S</div><div class="py-2">M</div><div class="py-2">T</div><div class="py-2">W</div><div class="py-2">T</div><div class="py-2">F</div><div class="py-2">S</div>
+                                    </div>
+                                    <div class="grid grid-cols-7 text-center text-sm">
+                                        <div class="h-10"></div><div class="h-10"></div><div class="h-10 flex items-center justify-center">1</div><div class="h-10 flex items-center justify-center">2</div><div class="h-10 flex items-center justify-center">3</div><div class="h-10 flex items-center justify-center">4</div><div class="h-10 flex items-center justify-center">5</div>
+                                        <div class="h-10 flex items-center justify-center">6</div><div class="h-10 flex items-center justify-center">7</div><div class="h-10 flex items-center justify-center">8</div><div class="h-10 flex items-center justify-center">9</div><div class="h-10 flex items-center justify-center">10</div><div class="h-10 flex items-center justify-center">11</div><div class="h-10 flex items-center justify-center">12</div>
+                                        <div class="h-10 flex items-center justify-center">13</div><div class="h-10 flex items-center justify-center">14</div><div class="h-10 flex items-center justify-center">15</div><div class="h-10 flex items-center justify-center">16</div><div class="h-10 flex items-center justify-center">17</div><div class="h-10 flex items-center justify-center">18</div><div class="h-10 flex items-center justify-center">19</div>
+                                        <div class="h-10 flex items-center justify-center">20</div><div class="h-10 flex items-center justify-center">21</div><div class="h-10 flex items-center justify-center">22</div><div class="h-10 flex items-center justify-center">23</div><div class="h-10 flex items-center justify-center">24</div>
+                                        <div class="h-10 flex items-center justify-center bg-[var(--primary-600)] text-white rounded-full w-8 h-8 mx-auto">25</div>
+                                        <div class="h-10 flex items-center justify-center">26</div><div class="h-10 flex items-center justify-center">27</div><div class="h-10 flex items-center justify-center">28</div><div class="h-10 flex items-center justify-center">29</div><div class="h-10 flex items-center justify-center">30</div><div class="h-10 flex items-center justify-center">31</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <button class="p-2 rounded-full hover:bg-gray-100 opacity-0" disabled="">
+                                            <svg class="text-gray-500" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                        </button>
+                                        <h3 class="text-base font-semibold text-gray-800">August 2024</h3>
+                                        <button class="p-2 rounded-full hover:bg-gray-100">
+                                            <svg class="text-gray-500" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                        </button>
+                                    </div>
+                                    <div class="grid grid-cols-7 text-center text-sm text-gray-500 font-medium">
+                                        <div class="py-2">S</div><div class="py-2">M</div><div class="py-2">T</div><div class="py-2">W</div><div class="py-2">T</div><div class="py-2">F</div><div class="py-2">S</div>
+                                    </div>
+                                    <div class="grid grid-cols-7 text-center text-sm">
+                                        <div class="h-10"></div><div class="h-10"></div><div class="h-10"></div><div class="h-10"></div><div class="h-10 flex items-center justify-center">1</div><div class="h-10 flex items-center justify-center">2</div><div class="h-10 flex items-center justify-center">3</div>
+                                        <div class="h-10 flex items-center justify-center">4</div><div class="h-10 flex items-center justify-center">5</div><div class="h-10 flex items-center justify-center">6</div><div class="h-10 flex items-center justify-center">7</div><div class="h-10 flex items-center justify-center">8</div><div class="h-10 flex items-center justify-center">9</div><div class="h-10 flex items-center justify-center">10</div>
+                                        <div class="h-10 flex items-center justify-center">11</div><div class="h-10 flex items-center justify-center">12</div><div class="h-10 flex items-center justify-center">13</div><div class="h-10 flex items-center justify-center">14</div><div class="h-10 flex items-center justify-center">15</div><div class="h-10 flex items-center justify-center">16</div><div class="h-10 flex items-center justify-center">17</div>
+                                        <div class="h-10 flex items-center justify-center">18</div><div class="h-10 flex items-center justify-center">19</div><div class="h-10 flex items-center justify-center">20</div><div class="h-10 flex items-center justify-center">21</div><div class="h-10 flex items-center justify-center">22</div><div class="h-10 flex items-center justify-center">23</div><div class="h-10 flex items-center justify-center">24</div>
+                                        <div class="h-10 flex items-center justify-center">25</div><div class="h-10 flex items-center justify-center">26</div><div class="h-10 flex items-center justify-center">27</div><div class="h-10 flex items-center justify-center">28</div><div class="h-10 flex items-center justify-center">29</div><div class="h-10 flex items-center justify-center">30</div><div class="h-10 flex items-center justify-center">31</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Task Allocation</h2>
+                            <div class="bg-white rounded-lg border border-gray-200 overflow-x-auto">
+                                <table class="w-full text-sm text-left text-gray-500">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3" scope="col">Employee</th>
+                                        <th class="px-6 py-3" scope="col">Task</th>
+                                        <th class="px-6 py-3" scope="col">Status</th>
+                                        <th class="px-6 py-3" scope="col">Progress</th>
+                                        <th class="px-6 py-3" scope="col">Due Date</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="bg-white border-b hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Ethan Harper</td>
+                                        <td class="px-6 py-4">Order Picking</td>
+                                        <td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">In Progress</span></td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-24 bg-gray-200 rounded-full h-1.5"><div class="bg-[var(--primary-500)] h-1.5 rounded-full" style="width: 60%"></div></div>
+                                                <span class="font-medium text-gray-700">60%</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">2024-07-25</td>
+                                    </tr>
+                                    <tr class="bg-white border-b hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Olivia Bennett</td>
+                                        <td class="px-6 py-4">Inventory Management</td>
+                                        <td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Completed</span></td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-24 bg-gray-200 rounded-full h-1.5"><div class="bg-[var(--primary-500)] h-1.5 rounded-full" style="width: 100%"></div></div>
+                                                <span class="font-medium text-gray-700">100%</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">2024-07-24</td>
+                                    </tr>
+                                    <tr class="bg-white border-b hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Liam Carter</td>
+                                        <td class="px-6 py-4">Shipping &amp; Receiving</td>
+                                        <td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">In Progress</span></td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-24 bg-gray-200 rounded-full h-1.5"><div class="bg-[var(--primary-500)] h-1.5 rounded-full" style="width: 40%"></div></div>
+                                                <span class="font-medium text-gray-700">40%</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">2024-07-26</td>
+                                    </tr>
+                                    <tr class="bg-white border-b hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Ava Morgan</td>
+                                        <td class="px-6 py-4">Quality Control</td>
+                                        <td class="px-6 py-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Pending</span></td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-24 bg-gray-200 rounded-full h-1.5"><div class="bg-[var(--primary-500)] h-1.5 rounded-full" style="width: 0%"></div></div>
+                                                <span class="font-medium text-gray-700">0%</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">2024-07-27</td>
+                                    </tr>
+                                    <tr class="bg-white hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Noah Foster</td>
+                                        <td class="px-6 py-4">Returns Processing</td>
+                                        <td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">In Progress</span></td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-24 bg-gray-200 rounded-full h-1.5"><div class="bg-[var(--primary-500)] h-1.5 rounded-full" style="width: 80%"></div></div>
+                                                <span class="font-medium text-gray-700">80%</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">2024-07-25</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="lg:col-span-1 space-y-8">
+                        <section>
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Performance Metrics</h2>
+                            <div class="space-y-4">
+                                <div class="bg-white p-6 rounded-lg border border-gray-200">
+                                    <p class="text-gray-600 text-sm font-medium mb-1">Total Employees</p>
+                                    <p class="text-3xl font-bold text-gray-900">125</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-lg border border-gray-200">
+                                    <p class="text-gray-600 text-sm font-medium mb-1">Avg. Task Completion</p>
+                                    <p class="text-3xl font-bold text-gray-900">2.5 hrs</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-lg border border-gray-200">
+                                    <p class="text-gray-600 text-sm font-medium mb-1">Overall Productivity</p>
+                                    <p class="text-3xl font-bold text-gray-900">92%</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Productivity Analytics</h2>
+                            <div class="bg-white p-6 rounded-lg border border-gray-200">
+                                <p class="text-gray-600 font-medium">Task Completion Rate</p>
+                                <p class="text-3xl font-bold text-gray-900 my-1">85%</p>
+                                <div class="flex items-center text-sm">
+<span class="text-green-600 font-semibold flex items-center">
+<svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+                        +5%
+                      </span>
+                                    <span class="text-gray-500 ml-1">vs. last 4 weeks</span>
+                                </div>
+                                <div class="mt-6 h-40 flex items-end justify-between gap-4">
+                                    <div class="flex flex-col items-center gap-2 w-1/4 text-center">
+                                        <div class="w-full bg-gray-200 rounded-t-lg" style="height: 40%"><div class="w-full h-full bg-[var(--primary-200)] rounded-t-lg"></div></div>
+                                        <p class="text-xs text-gray-500">Week 1</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-2 w-1/4 text-center">
+                                        <div class="w-full bg-gray-200 rounded-t-lg" style="height: 60%"><div class="w-full h-full bg-[var(--primary-200)] rounded-t-lg"></div></div>
+                                        <p class="text-xs text-gray-500">Week 2</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-2 w-1/4 text-center">
+                                        <div class="w-full bg-gray-200 rounded-t-lg" style="height: 70%"><div class="w-full h-full bg-[var(--primary-200)] rounded-t-lg"></div></div>
+                                        <p class="text-xs text-gray-500">Week 3</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-2 w-1/4 text-center">
+                                        <div class="w-full bg-gray-200 rounded-t-lg" style="height: 85%"><div class="w-full h-full bg-[var(--primary-500)] rounded-t-lg"></div></div>
+                                        <p class="text-xs text-gray-500 font-semibold">Week 4</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+</body></html>

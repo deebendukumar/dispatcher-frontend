@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <title>SwiftShip Notifications</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --brand-color: #3d99f5;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --icon-background: #eef2ff;
+            --icon-color: #4338ca;
+            --blue-badge: #dbeafe;
+            --blue-badge-text: #2563eb;
+            --green-badge: #d1fae5;
+            --green-badge-text: #059669;
+            --orange-badge: #ffedd5;
+            --orange-badge-text: #f97316;
+            --purple-badge: #ede9fe;
+            --purple-badge-text: #7c3aed;
+            --gray-badge: #f3f4f6;
+            --gray-badge-text: #4b5563;
+        }
+        .notification-item {
+            @apply flex items-start gap-4 p-4 border-b border-[var(--border-color)] transition-colors hover:bg-slate-50;
+        }
+        .notification-icon-wrapper {
+            @apply flex items-center justify-center rounded-full bg-[var(--icon-background)] shrink-0 size-10;
+        }
+        .notification-content {
+            @apply flex-grow;
+        }
+        .notification-header {
+            @apply flex justify-between items-center;
+        }
+        .notification-title {
+            @apply text-base font-semibold text-[var(--text-primary)] leading-normal;
+        }
+        .notification-timestamp {
+            @apply text-xs font-medium text-[var(--text-secondary)];
+        }
+        .notification-description {
+            @apply text-sm font-normal text-[var(--text-secondary)] leading-normal mt-1;
+        }
+        .notification-actions {
+            @apply flex items-center gap-2 mt-3;
+        }
+        .action-button {
+            @apply text-xs font-semibold px-2 py-1 rounded-md transition-colors;
+        }
+        .mark-read-button {
+            @apply bg-slate-100 hover:bg-slate-200 text-slate-600;
+        }
+        .dismiss-button {
+            @apply hover:bg-slate-100 p-2 rounded-full text-slate-500 hover:text-slate-700;
+        }
+        .badge {
+            @apply px-2 py-0.5 text-xs font-medium rounded-full;
+        }
+    </style>
+</head>
+<body class="bg-[var(--background-color)]" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] bg-white px-10 py-3 shadow-sm">
+            <div class="flex items-center gap-4 text-[var(--text-primary)]">
+                <div class="size-6 text-[var(--brand-color)]">
+                    <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-[var(--text-primary)] text-xl font-bold leading-tight tracking-[-0.015em]">SwiftShip</h2>
+            </div>
+            <nav class="flex items-center gap-6 text-sm font-medium text-slate-600">
+                <a class="hover:text-[var(--brand-color)] transition-colors" href="#">Dashboard</a>
+                <a class="hover:text-[var(--brand-color)] transition-colors" href="#">Inventory</a>
+                <a class="hover:text-[var(--brand-color)] transition-colors" href="#">Orders</a>
+                <a class="hover:text-[var(--brand-color)] transition-colors" href="#">Shipping</a>
+                <a class="hover:text-[var(--brand-color)] transition-colors" href="#">Returns</a>
+                <a class="hover:text-[var(--brand-color)] transition-colors" href="#">Analytics</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <div class="flex gap-2">
+                    <button class="flex size-10 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 hover:text-slate-800">
+                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+                        </svg>
+                    </button>
+                    <button class="flex size-10 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 hover:text-slate-800">
+                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAYBEkyZxn-rGxHLsxXJ98MS_ESduAEerjVxu_2rqiOf5hWgyvz4FLrxDn-1VOeRpOe2sCB1mlk05Vneu-Nu_9SblNU0UTiZm19HIEIXOqo2O61GWFa2l7YjnlalldFrGXwXGilgjSbFDQIh0nKXwYr51LusryOYXDyxzqma9Ak7HrST0r1_2Ws-d_1pj8LuVe7UEzUEpTYQH20U-yXzsLx5tDfLTFFOCNCMrXKj1CTi75p7w6c6oOnjJW345b38SmlImKFInCOgTw");'></div>
+            </div>
+        </header>
+        <main class="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl">
+                <div class="bg-[var(--card-background)] rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6 border-b border-[var(--border-color)]">
+                        <h1 class="text-[var(--text-primary)] text-2xl font-bold leading-tight">Notifications</h1>
+                        <p class="text-[var(--text-secondary)] mt-1">Updates on system status, features, and important alerts.</p>
+                    </div>
+                    <div class="divide-y divide-[var(--border-color)]">
+                        <div class="notification-item">
+                            <div class="notification-icon-wrapper text-[var(--orange-badge-text)] bg-[var(--orange-badge)]"><svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg></div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3 class="notification-title">System Maintenance</h3>
+                                    <span class="notification-timestamp">2 hours ago</span>
+                                </div>
+                                <p class="notification-description">Scheduled maintenance for the order processing system. Expect downtime between 10 PM and 12 AM.</p>
+                                <div class="notification-actions">
+                                    <button class="action-button mark-read-button">Mark as Read</button>
+                                </div>
+                            </div>
+                            <button class="dismiss-button"><svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon-wrapper text-[var(--blue-badge-text)] bg-[var(--blue-badge)]"><svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M223.68,66.15,135.68,18a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32l80.34,44-29.77,16.3-80.35-44ZM128,120,47.66,76l33.9-18.56,80.34,44ZM40,90l80,43.78v85.79L40,175.82Zm176,85.78h0l-80,43.79V133.82l32-17.51V152a8,8,0,0,0,16,0V107.55L216,90v85.77Z"></path></svg></div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3 class="notification-title">New Feature: Inventory Tracking</h3>
+                                    <span class="notification-timestamp">1 day ago</span>
+                                </div>
+                                <p class="notification-description">Real-time inventory tracking is now available in the dashboard. Check it out!</p>
+                                <div class="notification-actions">
+                                    <button class="action-button mark-read-button">Mark as Read</button>
+                                </div>
+                            </div>
+                            <button class="dismiss-button"><svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
+                        </div>
+                        <div class="notification-item bg-slate-50">
+                            <div class="notification-icon-wrapper text-[var(--purple-badge-text)] bg-[var(--purple-badge)]"><svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M247.42,117l-14-35A15.93,15.93,0,0,0,218.58,72H184V64a8,8,0,0,0-8-8H24A16,16,0,0,0,8,72V184a16,16,0,0,0,16,16H41a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,247.42,117ZM184,88h34.58l9.6,24H184ZM24,72H168v64H24ZM72,208a16,16,0,1,1,16-16A16,16,0,0,1,72,208Zm81-24H103a32,32,0,0,0-62,0H24V152H168v12.31A32.11,32.11,0,0,0,153,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,184,208Zm48-24H215a32.06,32.06,0,0,0-31-24V128h48Z"></path></svg></div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3 class="notification-title">Shipping Carrier Update</h3>
+                                    <span class="notification-timestamp">3 days ago</span>
+                                </div>
+                                <p class="notification-description">Important: Update your shipping carrier settings to reflect new rates effective next week.</p>
+                            </div>
+                            <button class="dismiss-button"><svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
+                        </div>
+                        <div class="notification-item bg-slate-50">
+                            <div class="notification-icon-wrapper text-[var(--green-badge-text)] bg-[var(--green-badge)]"><svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg></div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3 class="notification-title">Issue Resolved: Order Sync</h3>
+                                    <span class="notification-timestamp">5 days ago</span>
+                                </div>
+                                <p class="notification-description">Resolved: Issue with order synchronization between the web and mobile apps.</p>
+                            </div>
+                            <button class="dismiss-button"><svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
+                        </div>
+                        <div class="notification-item bg-slate-50">
+                            <div class="notification-icon-wrapper text-[var(--gray-badge-text)] bg-[var(--gray-badge)]"><svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"></path></svg></div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3 class="notification-title">Report Reminder</h3>
+                                    <span class="notification-timestamp">6 days ago</span>
+                                </div>
+                                <p class="notification-description">Reminder: Monthly system performance report due by the end of the week.</p>
+                            </div>
+                            <button class="dismiss-button"><svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+</body></html>

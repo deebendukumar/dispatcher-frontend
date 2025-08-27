@@ -1,0 +1,303 @@
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <title>Inventory Management</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-200: #bfdbfe;
+            --primary-300: #93c5fd;
+            --primary-400: #60a5fa;
+            --primary-500: #3b82f6;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-800: #1e40af;
+            --primary-900: #1e3a8a;
+            --primary-950: #172554;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --gray-950: #020617;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .sidebar-link.active {
+            background-color: var(--primary-50);
+            color: var(--primary-600);
+            font-weight: 600;
+        }
+        .sidebar-link.active svg {
+            color: var(--primary-600);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<div class="relative flex min-h-screen">
+    <aside class="flex w-64 flex-col border-r border-gray-200 bg-white">
+        <div class="flex h-16 shrink-0 items-center px-6">
+            <h1 class="text-lg font-bold text-gray-900">Warehouse Co</h1>
+        </div>
+        <nav class="flex-1 space-y-2 px-4 py-4">
+            <a class="sidebar-link flex items-center gap-3 rounded-md px-3 py-2 text-gray-600 hover:bg-gray-100" href="#">
+                <svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span class="text-sm">Dashboard</span>
+            </a>
+            <a class="sidebar-link active flex items-center gap-3 rounded-md px-3 py-2 text-gray-600" href="#">
+                <svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v2"></path><path d="M21 14v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M3 10h18"></path><path d="M12 10v4"></path></svg>
+                <span class="text-sm">Inventory</span>
+            </a>
+            <a class="sidebar-link flex items-center gap-3 rounded-md px-3 py-2 text-gray-600 hover:bg-gray-100" href="#">
+                <svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span class="text-sm">Orders</span>
+            </a>
+            <a class="sidebar-link flex items-center gap-3 rounded-md px-3 py-2 text-gray-600 hover:bg-gray-100" href="#">
+                <svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M10 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10.4 12.6a2 2 0 1 1-3.4-2.9"></path><path d="m14 18-3.4-2.9"></path><path d="m14 18 3.4 2.9"></path><path d="M14 18v-4.3"></path><path d="m10.4 15.5 3.4 2.9"></path></svg>
+                <span class="text-sm">Shipments</span>
+            </a>
+            <a class="sidebar-link flex items-center gap-3 rounded-md px-3 py-2 text-gray-600 hover:bg-gray-100" href="#">
+                <svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M3 3v18h18"></path><path d="M18.7 8a2 2 0 0 1 0 2.8l-6.3 6.3a2 2 0 0 1-2.8 0L4.3 11.8a2 2 0 0 1 0-2.8l6.3-6.3a2 2 0 0 1 2.8 0Z"></path></svg>
+                <span class="text-sm">Reports</span>
+            </a>
+        </nav>
+        <div class="mt-auto px-4 py-4">
+            <a class="sidebar-link flex items-center gap-3 rounded-md px-3 py-2 text-gray-600 hover:bg-gray-100" href="#">
+                <svg class="h-5 w-5" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span class="text-sm">Settings</span>
+            </a>
+        </div>
+    </aside>
+    <main class="flex-1">
+        <div class="px-8 py-6">
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Inventory Management</h1>
+                <p class="mt-1 text-gray-500">Manage your product catalog, track stock levels, and monitor inventory adjustments.</p>
+            </div>
+            <div class="mb-6 space-y-4">
+                <div class="flex flex-wrap items-center gap-4">
+                    <div class="relative flex-1">
+                        <svg class="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+                        <input class="w-full rounded-md border-gray-200 bg-white py-2.5 pl-10 pr-4 text-sm shadow-sm focus:border-primary-500 focus:ring-primary-500" placeholder="Search by product name, ID, or SKU" type="search"/>
+                    </div>
+                    <div class="relative" x-data="{ open: false }">
+                        <button @click="open = !open" class="flex h-10 items-center gap-2 rounded-md border border-gray-200 bg-white px-3 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-100">
+                            <svg class="h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                            <span>Export</span>
+                        </button>
+                        <div @click.away="open = false" class="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" x-cloak="" x-show="open">
+                            <div aria-labelledby="menu-button" aria-orientation="vertical" class="p-4" role="menu" tabindex="-1">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700" for="export-format">Format</label>
+                                        <select class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm" id="export-format" name="export-format">
+                                            <option>CSV</option>
+                                            <option>Excel</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700">Fields</label>
+                                        <div class="mt-2 space-y-2">
+                                            <div class="flex items-center">
+                                                <input class="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500" id="product-id" name="fields[]" type="checkbox"/>
+                                                <label class="ml-3 text-sm text-gray-600" for="product-id">Product ID</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input checked="" class="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500" id="product-name" name="fields[]" type="checkbox"/>
+                                                <label class="ml-3 text-sm text-gray-600" for="product-name">Name</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input checked="" class="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500" id="quantity" name="fields[]" type="checkbox"/>
+                                                <label class="ml-3 text-sm text-gray-600" for="quantity">Quantity</label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input checked="" class="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500" id="location" name="fields[]" type="checkbox"/>
+                                                <label class="ml-3 text-sm text-gray-600" for="location">Location</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="mt-4 inline-flex w-full justify-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2" type="button">
+                                        Export Data
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <label class="text-sm font-medium text-gray-700" for="supplier">Supplier:</label>
+                        <select class="rounded-md border-gray-200 bg-white text-sm shadow-sm focus:border-primary-500 focus:ring-primary-500" id="supplier" name="supplier">
+                            <option value="">All</option>
+                            <option value="greenclean">GreenClean Inc.</option>
+                            <option value="ecothreads">EcoThreads Co.</option>
+                            <option value="paperworks">PaperWorks Ltd.</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label class="text-sm font-medium text-gray-700" for="location">Location:</label>
+                        <select class="rounded-md border-gray-200 bg-white text-sm shadow-sm focus:border-primary-500 focus:ring-primary-500" id="location" name="location">
+                            <option value="">All</option>
+                            <option value="warehouse-a">Warehouse A</option>
+                            <option value="warehouse-b">Warehouse B</option>
+                            <option value="warehouse-c">Warehouse C</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label class="text-sm font-medium text-gray-700" for="status">Stock Status:</label>
+                        <select class="rounded-md border-gray-200 bg-white text-sm shadow-sm focus:border-primary-500 focus:ring-primary-500" id="status" name="status">
+                            <option value="">All</option>
+                            <option value="in-stock">In Stock</option>
+                            <option value="low-stock">Low Stock</option>
+                            <option value="out-of-stock">Out of Stock</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <label class="text-sm font-medium text-gray-700" for="category">Category:</label>
+                        <select class="rounded-md border-gray-200 bg-white text-sm shadow-sm focus:border-primary-500 focus:ring-primary-500" id="category" name="category">
+                            <option value="">All</option>
+                            <option value="cleaning">Cleaning</option>
+                            <option value="apparel">Apparel</option>
+                            <option value="stationery">Stationery</option>
+                        </select>
+                    </div>
+                    <button class="flex h-10 items-center gap-2 rounded-md border border-gray-200 bg-white px-3 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-100">
+                        <svg class="h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                        <span>Apply Filters</span>
+                    </button>
+                    <button class="flex h-10 items-center gap-2 rounded-md border border-transparent bg-transparent px-3 text-sm font-medium text-gray-600 hover:text-gray-900">
+                        <svg class="h-4 w-4" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 2.5a2.12 2.12 0 0 1 0 3L12 15l-4-4-4 4"></path><path d="M18 12.5V21.5"></path><path d="M21.5 16H14.5"></path></svg>
+                        <span>Clear Filters</span>
+                    </button>
+                </div>
+            </div>
+            <div class="overflow-x-auto rounded-lg border border-gray-200 bg-white shadow-sm">
+                <table class="min-w-full divide-y-2 divide-gray-200 text-sm">
+                    <thead>
+                    <tr>
+                        <th class="px-4 py-3 text-left font-medium text-gray-900">Product ID</th>
+                        <th class="px-4 py-3 text-left font-medium text-gray-900">Name</th>
+                        <th class="px-4 py-3 text-left font-medium text-gray-900">Quantity</th>
+                        <th class="px-4 py-3 text-left font-medium text-gray-900">Location</th>
+                        <th class="px-4 py-3 text-left font-medium text-gray-900">Reorder Point</th>
+                        <th class="px-4 py-3 text-left font-medium text-gray-900">Supplier</th>
+                        <th class="px-4 py-3 text-left font-medium text-gray-900">Low Stock Alert</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-500">1001</td>
+                        <td class="whitespace-nowrap px-4 py-3 font-medium text-gray-900">Eco-Friendly Cleaning Spray</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">500</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">Warehouse A</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">100</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">GreenClean Inc.</td>
+                        <td class="whitespace-nowrap px-4 py-3">
+                            <span class="inline-flex items-center rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-700">Alert</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-500">1002</td>
+                        <td class="whitespace-nowrap px-4 py-3 font-medium text-gray-900">Organic Cotton T-Shirts</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">1200</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">Warehouse B</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">200</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">EcoThreads Co.</td>
+                        <td class="whitespace-nowrap px-4 py-3">
+                            <span class="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">OK</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-500">1003</td>
+                        <td class="whitespace-nowrap px-4 py-3 font-medium text-gray-900">Recycled Paper Notebooks</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">800</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">Warehouse A</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">150</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">PaperWorks Ltd.</td>
+                        <td class="whitespace-nowrap px-4 py-3">
+                            <span class="inline-flex items-center rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-700">Alert</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-500">1004</td>
+                        <td class="whitespace-nowrap px-4 py-3 font-medium text-gray-900">Bamboo Toothbrushes</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">300</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">Warehouse C</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">50</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">BambooLife Co.</td>
+                        <td class="whitespace-nowrap px-4 py-3">
+                            <span class="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">OK</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-500">1005</td>
+                        <td class="whitespace-nowrap px-4 py-3 font-medium text-gray-900">Reusable Water Bottles</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">1500</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">Warehouse B</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">300</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">HydrateWell Inc.</td>
+                        <td class="whitespace-nowrap px-4 py-3">
+                            <span class="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">OK</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-500">1006</td>
+                        <td class="whitespace-nowrap px-4 py-3 font-medium text-gray-900">Solar-Powered Phone Chargers</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">200</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">Warehouse C</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">40</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-gray-700">SolarTech Ltd.</td>
+                        <td class="whitespace-nowrap px-4 py-3">
+                            <span class="inline-flex items-center rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-700">Alert</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
+                <div class="lg:col-span-2">
+                    <h2 class="text-xl font-bold text-gray-900">Inventory Adjustments</h2>
+                    <div class="mt-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700" for="product">Product</label>
+                                <select class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm" id="product" name="product">
+                                    <option>Select Product</option>
+                                    <option>Eco-Friendly Cleaning Spray</option>
+                                    <option>Organic Cotton T-Shirts</option>
+                                    <option>Recycled Paper Notebooks</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700" for="quantity">Adjustment Quantity</label>
+                                <input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm" id="quantity" name="quantity" placeholder="Enter Quantity" type="number"/>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700" for="reason">Reason for Adjustment</label>
+                                <textarea class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm" id="reason" name="reason" placeholder="e.g., Damaged goods, stock count correction" rows="4"></textarea>
+                            </div>
+                            <div class="flex justify-end">
+                                <button class="inline-flex justify-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2" type="submit">
+                                    Apply Adjustment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script defer="" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+</body></html>

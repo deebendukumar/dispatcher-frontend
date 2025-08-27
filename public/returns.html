@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --brand-primary: #3d99f5;
+            --brand-secondary: #e7edf4;
+            --text-primary: #0d141c;
+            --text-secondary: #49739c;
+            --surface-primary: #ffffff;
+            --surface-secondary: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface-secondary text-text-primary">
+<div class="flex min-h-screen">
+    <aside class="w-64 bg-surface-primary border-r border-border-color flex flex-col">
+        <div class="flex items-center gap-3 h-16 px-6 border-b border-border-color">
+            <div class="size-8 text-[var(--brand-primary)]">
+                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_6_535)"><path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill="currentColor" fill-rule="evenodd"></path></g><defs><clipPath id="clip0_6_535"><rect fill="white" height="48" width="48"></rect></clipPath></defs></svg>
+            </div>
+            <h1 class="text-xl font-bold">ShipSmart</h1>
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-2">
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium text-text-secondary hover:bg-surface-secondary" href="#">Dashboard</a>
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium text-text-secondary hover:bg-surface-secondary" href="#">Orders</a>
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium text-text-secondary hover:bg-surface-secondary" href="#">Inventory</a>
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium bg-[var(--brand-secondary)] text-[var(--brand-primary)]" href="#">Returns</a>
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium text-text-secondary hover:bg-surface-secondary" href="#">Customers</a>
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium text-text-secondary hover:bg-surface-secondary" href="#">Analytics</a>
+        </nav>
+    </aside>
+    <div class="flex-1 flex flex-col">
+        <header class="flex items-center justify-end h-16 px-8 bg-surface-primary border-b border-border-color">
+            <div class="flex items-center gap-4">
+                <button class="flex items-center justify-center size-10 rounded-full hover:bg-surface-secondary">
+                    <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path></svg>
+                </button>
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5yrR6rVuQLNP6Maks4xPnm-5y2enPash1lqkZ4NifD_VndDGsjEhF5XjmCH6z8uLn1j2hFOFrPucPomm_Bs8xCjIbQlMXmEiPUs2YK0qgYpy77NqrVGIomYlwfUQvQa_LBKkp1_mbTRnc574A_aJ_gzuylzNyLZ7OEuixarqq8ZG7J5bVXU9-TjdP6yevc8Blmdjm4xukMTGw7wHJvUMFHq-QuMiGkXFyKp_D1wY0jop5t2mdnqUoFrXiVVQr5JYfUcuZr1u6TzU");'></div>
+            </div>
+        </header>
+        <main class="flex-1 p-8 overflow-y-auto">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-text-primary">Return Management</h2>
+                    <p class="text-text-secondary">Manage and process customer returns efficiently.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-surface-primary p-6 rounded-lg border border-border-color">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Return Requests</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="text-left text-text-secondary font-medium">
+                            <tr>
+                                <th class="p-4">Order ID</th>
+                                <th class="p-4">Reason</th>
+                                <th class="p-4">Status</th>
+                                <th class="p-4">Date Requested</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="border-t border-border-color hover:bg-surface-secondary">
+                                <td class="p-4 font-medium text-text-primary">#12345</td>
+                                <td class="p-4 text-text-secondary">Defective Product</td>
+                                <td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">Pending</span></td>
+                                <td class="p-4 text-text-secondary">2024-03-15</td>
+                            </tr>
+                            <tr class="border-t border-border-color hover:bg-surface-secondary">
+                                <td class="p-4 font-medium text-text-primary">#67890</td>
+                                <td class="p-4 text-text-secondary">Wrong Item Shipped</td>
+                                <td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">In Transit</span></td>
+                                <td class="p-4 text-text-secondary">2024-03-14</td>
+                            </tr>
+                            <tr class="border-t border-border-color hover:bg-surface-secondary">
+                                <td class="p-4 font-medium text-text-primary">#11223</td>
+                                <td class="p-4 text-text-secondary">Customer Changed Mind</td>
+                                <td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-indigo-100 text-indigo-800">Received</span></td>
+                                <td class="p-4 text-text-secondary">2024-03-13</td>
+                            </tr>
+                            <tr class="border-t border-border-color hover:bg-surface-secondary">
+                                <td class="p-4 font-medium text-text-primary">#44556</td>
+                                <td class="p-4 text-text-secondary">Damaged During Shipping</td>
+                                <td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-800">Processing</span></td>
+                                <td class="p-4 text-text-secondary">2024-03-12</td>
+                            </tr>
+                            <tr class="border-t border-border-color hover:bg-surface-secondary">
+                                <td class="p-4 font-medium text-text-primary">#77889</td>
+                                <td class="p-4 text-text-secondary">Item Not as Described</td>
+                                <td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Completed</span></td>
+                                <td class="p-4 text-text-secondary">2024-03-11</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="bg-surface-primary p-6 rounded-lg border border-border-color space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-text-primary mb-2">Inspection Workflow</h3>
+                        <div class="flex items-center gap-4 mb-2">
+                            <div class="w-full bg-surface-secondary rounded-full h-2.5">
+                                <div class="bg-[var(--brand-primary)] h-2.5 rounded-full" style="width: 25%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-text-secondary">25%</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 size-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                                <svg fill="currentColor" height="16px" viewBox="0 0 256 256" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Inspection Started</p>
+                                <p class="text-sm text-text-secondary">2024-03-15 10:00 AM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 size-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                                <svg fill="currentColor" height="16px" viewBox="0 0 256 256" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Item Received</p>
+                                <p class="text-sm text-text-secondary">2024-03-15 10:30 AM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 opacity-50">
+                            <div class="flex-shrink-0 size-8 rounded-full bg-surface-secondary text-text-secondary flex items-center justify-center">
+                                <svg fill="currentColor" height="16px" viewBox="0 0 256 256" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Quality Check</p>
+                                <p class="text-sm text-text-secondary">Pending</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 opacity-50">
+                            <div class="flex-shrink-0 size-8 rounded-full bg-surface-secondary text-text-secondary flex items-center justify-center">
+                                <svg fill="currentColor" height="16px" viewBox="0 0 256 256" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Final Approval</p>
+                                <p class="text-sm text-text-secondary">Pending</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-text-primary mb-4">Restocking Decision</h3>
+                        <div class="flex flex-col gap-3">
+                            <button class="flex items-center justify-center rounded-md h-10 px-4 bg-[var(--brand-primary)] text-white text-sm font-semibold hover:bg-blue-600 transition-colors">Approve Restock</button>
+                            <button class="flex items-center justify-center rounded-md h-10 px-4 bg-surface-secondary text-text-primary text-sm font-semibold hover:bg-gray-200 transition-colors">Reject Restock</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+</body></html>
